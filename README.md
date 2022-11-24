@@ -1,22 +1,38 @@
-# xlsx-importer
+# create-svelte
 
-将 xlsx 转换成目标数据
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-# 起因
+## Creating a project
 
-啊, 对面的快递回馈单每次给到的格式都不一样啊!!!!!!!
+If you're seeing this, you've probably already done this step. Congrats!
 
-## 使用
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-```js
-// 声明目标数据
-let targets = [
- ["field_name","field_desc"],
- ["字段名","字段描述"],
- ["name","用户名"],
-]
-// 初始化
-XlsxImporter.init(targets,'elem')
-// 用户导入xlsx
-// 用户选择要转换的列
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
