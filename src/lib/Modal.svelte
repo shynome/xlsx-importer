@@ -1,5 +1,3 @@
-<svelte:options tag="xlsx-importer" />
-
 <script>
   import { createEventDispatcher } from "svelte";
   /**@type {[string,string][]}*/
