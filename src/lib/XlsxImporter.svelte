@@ -3,6 +3,8 @@
   import Sheet from "./Sheet.svelte";
   import Targets from "./Targets.svelte";
   import Snapshot from "./Snapshot.svelte";
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
 
   /**@type {[string,string][]}*/
   export let config;
@@ -24,7 +26,13 @@
 <div class="container">
   {#if sheet}
     <div class="sheet-scroll">
-      <Sheet {sheet} {now_select} bind:store on:finished={handleFinish} />
+      <Sheet
+        {sheet}
+        {now_select}
+        bind:store
+        on:finished={handleFinish}
+        on:close
+      />
     </div>
     <Targets targets={config} bind:selected={now_select} />
   {/if}
@@ -35,7 +43,8 @@
         {store}
         data={snapshotData}
         on:reselect={() => (snapshot = false)}
-        on:finish={(e) => console.log(e.detail)}
+        on:xlsx-imported
+        on:close
       />
     </div>
   {/if}
@@ -45,11 +54,12 @@
   .container {
     position: relative;
     display: inline-block;
+    padding: 0 2vw;
     overflow: hidden;
   }
   .sheet-scroll {
     overflow-y: scroll;
-    max-height: 90vh;
+    max-height: 95vh;
     padding-bottom: 1px;
   }
   .snapshot {

@@ -23,14 +23,17 @@
       if (typeof cols === "undefined") {
         return "";
       }
-      return cols.map((k) => raw[k]).filter((v) => typeof v != undefined);
+      return cols
+        .map((k) => raw[k])
+        .filter((v) => typeof v != undefined)
+        .join(",");
     });
   });
 </script>
 
 <div class="root">
   <div class="menu">
-    <div class="btn" on:click={() => dispatch("finish", d)}>通过</div>
+    <div class="btn" on:click={() => dispatch("xlsx-imported", d)}>通过</div>
     <div class="btn" on:click={() => dispatch("reselect")}>重新选择</div>
     <div class="btn" on:click={() => dispatch("close")}>关闭</div>
   </div>
