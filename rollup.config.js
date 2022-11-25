@@ -22,7 +22,7 @@ export default [
     input: "src/lib/Modal.svelte",
     output: {
       sourcemap: true,
-      format: "iife",
+      format: "umd",
       name: "XlsxImporter",
       file: "public/xlsx-importer.js",
     },
