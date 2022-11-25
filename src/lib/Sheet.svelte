@@ -130,19 +130,22 @@
   });
 </script>
 
-<div class="right-btns">
-  <div class="btn finish" on:click={() => dispatch("finished")}>完成</div>
-  <div class="btn reset" on:click={resetStore}>重新选择</div>
-  <div class="btn" on:click={() => dispatch("close")}>关闭</div>
+<div class="xlsx-importer-menu">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div class="xlsx-importer-btn finish" on:click={() => dispatch("finished")}>完成</div>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div class="xlsx-importer-btn reset" on:click={resetStore}>重新选择</div>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div class="xlsx-importer-btn" on:click={() => dispatch("close")}>关闭</div>
 </div>
-<div class="sheet" bind:this={root} data-changed-count={changed_count}>
+<div class="xlsx-importer-sheet" bind:this={root} data-changed-count={changed_count}>
   {#if sheet}
     {@html h}
   {/if}
 </div>
 
 <style>
-  .right-btns {
+  .xlsx-importer-menu {
     position: absolute;
     right: 0;
     top: 50%;
@@ -150,7 +153,7 @@
     font-size: 24px;
     z-index: 2;
   }
-  .right-btns .btn {
+  .xlsx-importer-menu .xlsx-importer-btn {
     user-select: none;
     text-align: center;
     margin: 10px 0;
@@ -162,31 +165,28 @@
     border-bottom-left-radius: 100px;
     cursor: pointer;
   }
-  .sheet {
+  .xlsx-importer-sheet {
     padding-bottom: 300px;
   }
-  .sheet :global(table) {
+  .xlsx-importer-sheet :global(table) {
     position: relative;
     border-collapse: collapse;
     border: 1px solid;
     overflow: hidden;
   }
-  .sheet :global(table tr:nth-child(even)) {
+  .xlsx-importer-sheet :global(table tr:nth-child(even)) {
     background-color: #f0f0f0;
   }
-  .sheet :global(table td) {
+  .xlsx-importer-sheet :global(table td) {
     padding: 7px 10px;
     position: relative;
     min-width: 50px;
   }
-  .sheet :global(table td:empty) {
+  .xlsx-importer-sheet :global(table td:empty) {
     min-width: 0;
     padding: 0;
   }
-  .sheet :global(table tr:first-child > td::after) {
-    /* top: 50px; */
-  }
-  .sheet :global(table tr:first-child > td::before) {
+  .xlsx-importer-sheet :global(table tr:first-child > td::before) {
     user-select: none;
     content: "";
     position: absolute;
@@ -199,14 +199,14 @@
     border-right: 1px solid #fff;
     visibility: hidden;
   }
-  .sheet :global(table tr:first-child > td.hover::before),
-  .sheet :global(table tr:first-child > td.selected::before) {
+  .xlsx-importer-sheet :global(table tr:first-child > td.hover::before),
+  .xlsx-importer-sheet :global(table tr:first-child > td.selected::before) {
     visibility: visible;
   }
-  .sheet :global(table tr td) {
+  .xlsx-importer-sheet :global(table tr td) {
     cursor: pointer;
   }
-  /* .sheet :global(table tr:first-child > td.hover) {
+  /* .xlsx-importer-sheet :global(table tr:first-child > td.hover) {
     background-color: transparent !important;
   } */
 </style>

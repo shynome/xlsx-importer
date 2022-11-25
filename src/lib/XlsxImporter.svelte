@@ -23,9 +23,9 @@
   };
 </script>
 
-<div class="container">
+<div class="xlsx-importer-container">
   {#if sheet}
-    <div class="sheet-scroll">
+    <div class="xlsx-importer-sheet-scroll">
       <Sheet
         {sheet}
         {now_select}
@@ -37,7 +37,7 @@
     <Targets targets={config} bind:selected={now_select} />
   {/if}
   {#if snapshot}
-    <div class="snapshot">
+    <div class="xlsx-importer-snapshot">
       <Snapshot
         {config}
         {store}
@@ -51,18 +51,18 @@
 </div>
 
 <style>
-  .container {
+  .xlsx-importer-container {
     position: relative;
     display: inline-block;
     padding: 0 2vw;
     overflow: hidden;
   }
-  .sheet-scroll {
+  .xlsx-importer-sheet-scroll {
     overflow-y: scroll;
     max-height: 95vh;
     padding-bottom: 1px;
   }
-  .snapshot {
+  .xlsx-importer-snapshot {
     position: absolute;
     top: 0;
     left: 0;

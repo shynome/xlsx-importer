@@ -31,11 +31,14 @@
   });
 </script>
 
-<div class="root">
-  <div class="menu">
-    <div class="btn" on:click={() => dispatch("xlsx-imported", d)}>通过</div>
-    <div class="btn" on:click={() => dispatch("reselect")}>重新选择</div>
-    <div class="btn" on:click={() => dispatch("close")}>关闭</div>
+<div class="xlsx-importer-root">
+  <div class="xlsx-importer-menu">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="xlsx-importer-btn" on:click={() => dispatch("xlsx-imported", d)}>通过</div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="xlsx-importer-btn" on:click={() => dispatch("reselect")}>重新选择</div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <div class="xlsx-importer-btn" on:click={() => dispatch("close")}>关闭</div>
   </div>
   <div class="table-scroll">
     <table>
@@ -60,16 +63,16 @@
 </div>
 
 <style>
-  .root {
+  .xlsx-importer-root {
     position: relative;
     height: 100%;
   }
-  .root .table-scroll {
+  .xlsx-importer-root .table-scroll {
     height: 100%;
     width: 100%;
     overflow: auto;
   }
-  .menu {
+  .xlsx-importer-menu {
     position: absolute;
     right: 0;
     top: 50%;
@@ -77,7 +80,7 @@
     font-size: 24px;
     z-index: 2;
   }
-  .menu .btn {
+  .xlsx-importer-menu .xlsx-importer-btn {
     user-select: none;
     text-align: center;
     margin: 10px 0;

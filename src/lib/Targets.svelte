@@ -4,7 +4,7 @@
   export let selected = 0;
 </script>
 
-<div class="targets">
+<div class="xlsx-importer-targets">
   <ul>
     {#each targets as [name, desc], i}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -21,7 +21,7 @@
 </div>
 
 <style>
-  .targets {
+  .xlsx-importer-targets {
     position: absolute;
     top: 100%;
     width: 100%;

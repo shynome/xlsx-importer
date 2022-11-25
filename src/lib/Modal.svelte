@@ -39,7 +39,7 @@
   <input type="file" disabled={pasring} accept=".xlsx" bind:files required />
   <button type="submit">解析</button>
 </form>
-<div class="modal" class:open>
+<div class="xlsx-importer-modal" class:open>
   <XlsxImporter
     {sheet}
     {config}
@@ -52,7 +52,7 @@
 </div>
 
 <style>
-  .modal {
+  .xlsx-importer-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -66,11 +66,11 @@
     width: 100vw;
     height: 100vh;
   }
-  .modal {
+  .xlsx-importer-modal {
     visibility: hidden;
     opacity: 0;
   }
-  .modal.open {
+  .xlsx-importer-modal.open {
     visibility: visible;
     opacity: 1;
   }
